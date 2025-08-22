@@ -35,7 +35,7 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section className="p-8 m-4 bg-gradient-to-b from-blue-900 to-gray-900 rounded-lg text-white">
+    <section className="p-8 bg-gradient-to-b from-blue-900  to-blackrounded-lg m-4 text-white rounded-lg ">
       <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center animate-fadeIn">
         Projetos
       </h2>
@@ -79,7 +79,7 @@ export default function Projects() {
 
       {/* Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 bg-black/80 flex justify-center items-center z-50 p-4">
+        <div className="fixed inset-0 bg-black/80 flex justify-center items-center z-50 p-4 rounded-lg">
           <div className="bg-gray-900 rounded-lg shadow-2xl max-w-4xl w-full overflow-y-auto max-h-full p-6 relative">
             <button
               onClick={() => setSelectedProject(null)}

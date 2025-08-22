@@ -27,7 +27,7 @@ export default function Carousel() {
   const repeatedIcons = [...icons, ...icons];
 
   return (
-    <section className="w-full overflow-hidden py-8 bg-black">
+    <section className="w-full overflow-hidden py-8 ">
       <div className="flex min-w-full animate-scroll">
         {repeatedIcons.map((icon, idx) => (
           <div key={idx} className="flex-shrink-0 mx-8">

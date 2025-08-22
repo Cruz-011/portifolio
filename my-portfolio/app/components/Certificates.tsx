@@ -9,7 +9,7 @@ const certificates = [
 
 export default function Certificates() {
   return (
-    <section className="p-8 m-4 bg-gradient-to-b from-blue-900 to-gray-900 rounded-lg animate-fadeIn text-white">
+    <section className="p-8 bg-gradient-to-b from-blue-900  to-blackrounded-lg m-4 animate-fadeIn text-white rounded-lg">
       <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Certificados</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

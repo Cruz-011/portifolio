@@ -15,7 +15,7 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section className="p-8 m-4 bg-gradient-to-b from-blue-900 via-purple-900 to-black rounded-lg animate-fadeIn text-white">
+    <section className="p-8 m-4 bg-gradient-to-b from-blue-900  to-blackrounded-lg m-4g animate-fadeIn text-white">
       <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">Habilidades & Tecnologias</h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">

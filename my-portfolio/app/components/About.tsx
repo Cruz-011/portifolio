@@ -16,7 +16,7 @@ export default function About() {
   ];
 
   return (
-    <section className="p-8 bg-gradient-to-b from-blue-900 to-gray-900 rounded-lg m-4 animate-fadeIn text-white">
+    <section className="p-8 bg-gradient-to-b from-blue-900  to-blackrounded-lg m-4 animate-fadeIn text-white rounded-lg">
       <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center animate-fadeIn">
         Sobre Mim
       </h2>
