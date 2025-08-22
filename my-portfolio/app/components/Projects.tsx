@@ -1,0 +1,117 @@
+"use client";
+
+import { useState } from "react";
+import { FaReact, FaJava, FaJsSquare } from "react-icons/fa";
+import { SiNextdotjs, SiTypescript } from "react-icons/si";
+import { MdPhoneIphone } from "react-icons/md";
+
+const projects = [
+  {
+    title: "Carcheck",
+    description: "Sistema de verificação de veículos e histórico de manutenção.",
+    images: ["/projects/carcheck.png", "/projects/carcheck2.png"],
+    technologies: ["React", "Next.js", "Java"],
+    details: "Carcheck é uma aplicação web profissional que permite gerenciar o histórico de manutenção de veículos, com dashboards intuitivos e relatórios detalhados.",
+  },
+  {
+    title: "FWV Frost",
+    description: "Sistema de produção e venda de gelo saborizado.",
+    images: ["/projects/fwv-frost.png", "/projects/fwv-frost2.png"],
+    technologies: ["React Native", "TypeScript"],
+    details: "FWV Frost é um app mobile para gestão da produção e venda de gelo saborizado, incluindo controle de estoque, pedidos e integração com pagamentos.",
+  },
+];
+
+const techIcons = {
+  React: <FaReact size={20} color="#61dafb" />,
+  "Next.js": <SiNextdotjs size={20} color="#ffffff" />,
+  Java: <FaJava size={20} color="#f89820" />,
+  TypeScript: <SiTypescript size={20} color="#3178c6" />,
+  "React Native": <MdPhoneIphone size={20} color="#61dafb" />,
+  JavaScript: <FaJsSquare size={20} color="#f7df1e" />,
+};
+
+export default function Projects() {
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  return (
+    <section className="p-8 m-4 bg-gradient-to-b from-blue-900 to-gray-900 rounded-lg text-white">
+      <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center animate-fadeIn">
+        Projetos
+      </h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {projects.map((proj) => (
+          <div
+            key={proj.title}
+            className="bg-gray-800/50 rounded-xl shadow-2xl overflow-hidden transform transition-transform duration-500 hover:scale-105 hover:rotate-1 cursor-pointer group perspective-1000"
+          >
+            <div className="relative w-full h-60 md:h-64 overflow-hidden">
+              <img
+                src={proj.images[0]}
+                alt={proj.title}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-center items-center text-center p-4">
+                <h3 className="text-xl font-bold mb-2">{proj.title}</h3>
+                <p className="text-sm mb-3">{proj.description}</p>
+                <div className="flex gap-2 justify-center flex-wrap mb-3">
+                  {proj.technologies.map((tech) => (
+                    <span
+                      key={tech}
+                      className="flex items-center gap-1 bg-gray-700/60 px-2 py-1 rounded-full text-xs font-medium"
+                    >
+                      {techIcons[tech]} {tech}
+                    </span>
+                  ))}
+                </div>
+                <button
+                  onClick={() => setSelectedProject(proj)}
+                  className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg font-semibold transition-colors"
+                >
+                  Ver Projeto
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* Modal */}
+      {selectedProject && (
+        <div className="fixed inset-0 bg-black/80 flex justify-center items-center z-50 p-4">
+          <div className="bg-gray-900 rounded-lg shadow-2xl max-w-4xl w-full overflow-y-auto max-h-full p-6 relative">
+            <button
+              onClick={() => setSelectedProject(null)}
+              className="absolute top-4 right-4 text-white text-2xl font-bold hover:text-red-500"
+            >
+              &times;
+            </button>
+            <h2 className="text-3xl font-bold mb-4">{selectedProject.title}</h2>
+            <p className="mb-4">{selectedProject.details}</p>
+            <div className="flex gap-4 flex-wrap mb-4">
+              {selectedProject.technologies.map((tech) => (
+                <span
+                  key={tech}
+                  className="flex items-center gap-1 bg-gray-700/60 px-2 py-1 rounded-full text-xs font-medium"
+                >
+                  {techIcons[tech]} {tech}
+                </span>
+              ))}
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {selectedProject.images.map((img, i) => (
+                <img
+                  key={i}
+                  src={img}
+                  alt={`${selectedProject.title} screenshot ${i + 1}`}
+                  className="rounded-lg object-cover w-full h-64"
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+}
