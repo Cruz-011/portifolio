@@ -11,14 +11,18 @@ const projects = [
     description: "Sistema de verificação de veículos e histórico de manutenção.",
     images: ["/projects/carcheck.png", "/projects/carcheck2.png"],
     technologies: ["React", "Next.js", "Java"],
-    details: "Carcheck é uma aplicação web profissional que permite gerenciar o histórico de manutenção de veículos, com dashboards intuitivos e relatórios detalhados.",
+    details:
+      "Carcheck é uma aplicação web profissional que permite gerenciar o histórico de manutenção de veículos, com dashboards intuitivos e relatórios detalhados.",
+    link: "https://carcheck.example.com", // <-- link do site
   },
   {
     title: "FWV Frost",
     description: "Sistema de produção e venda de gelo saborizado.",
     images: ["/projects/fwv-frost.png", "/projects/fwv-frost2.png"],
     technologies: ["React Native", "TypeScript"],
-    details: "FWV Frost é um app mobile para gestão da produção e venda de gelo saborizado, incluindo controle de estoque, pedidos e integração com pagamentos.",
+    details:
+      "FWV Frost é um app mobile para gestão da produção e venda de gelo saborizado, incluindo controle de estoque, pedidos e integração com pagamentos.",
+    link: "https://fwvfrost.example.com", // <-- link do site
   },
 ];
 
@@ -35,7 +39,7 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section className="p-8 bg-gradient-to-b from-blue-900  to-blackrounded-lg m-4 text-white rounded-lg ">
+    <section className="p-8 bg-gradient-to-b from-blue-900 to-black rounded-lg m-4 text-white">
       <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center animate-fadeIn">
         Projetos
       </h2>
@@ -87,7 +91,21 @@ export default function Projects() {
             >
               &times;
             </button>
-            <h2 className="text-3xl font-bold mb-4">{selectedProject.title}</h2>
+
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-3xl font-bold">{selectedProject.title}</h2>
+              {selectedProject.link && (
+                <a
+                  href={selectedProject.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg font-semibold transition-colors"
+                >
+                  Acessar Site
+                </a>
+              )}
+            </div>
+
             <p className="mb-4">{selectedProject.details}</p>
             <div className="flex gap-4 flex-wrap mb-4">
               {selectedProject.technologies.map((tech) => (

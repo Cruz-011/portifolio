@@ -7,25 +7,19 @@ export default function Contact() {
     {
       name: "LinkedIn",
       icon: <FaLinkedin size={24} />,
-      url: "https://linkedin.com",
+      url: "https://www.linkedin.com/in/cauan-da-cruz-ferreira",
       bg: "bg-blue-700 hover:bg-blue-600",
     },
     {
       name: "GitHub",
       icon: <FaGithub size={24} />,
-      url: "https://github.com",
+      url: "https://github.com/Cruz-011",
       bg: "bg-gray-700 hover:bg-gray-600",
-    },
-    {
-      name: "WhatsApp",
-      icon: <FaWhatsapp size={24} />,
-      url: "https://wa.me/SEUNUMERO",
-      bg: "bg-green-600 hover:bg-green-500",
     },
     {
       name: "Email",
       icon: <FaEnvelope size={24} />,
-      url: "mailto:SEUEMAIL@example.com",
+      url: "mailto:cauandacruzferreira1010@gmail.com",
       bg: "bg-yellow-700 hover:bg-yellow-600",
     },
   ];
