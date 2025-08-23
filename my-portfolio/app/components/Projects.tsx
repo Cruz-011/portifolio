@@ -8,21 +8,39 @@ import { MdPhoneIphone } from "react-icons/md";
 const projects = [
   {
     title: "Carcheck",
-    description: "Sistema de verificação de veículos e histórico de manutenção.",
-    images: ["/projects/carcheck.png", "/projects/carcheck2.png"],
+    description: "Sistema de verificação de integridade e identificação de problemas com IA.",
+    images: ["/projetos/carcheck-web.png", "/projetos/carcheck-web2.png"],
     technologies: ["React", "Next.js", "Java"],
     details:
-      "Carcheck é uma aplicação web profissional que permite gerenciar o histórico de manutenção de veículos, com dashboards intuitivos e relatórios detalhados.",
-    link: "https://carcheck.example.com", // <-- link do site
+      "Carcheck é uma aplicação web que permite identificar problemas dos veículos apenas com perguntas e respostas utilizando IA. Conta com dashboards intuitivos e relatórios detalhados.",
+    link: "https://carcheck-wine.vercel.app/"
   },
   {
-    title: "FWV Frost",
-    description: "Sistema de produção e venda de gelo saborizado.",
-    images: ["/projects/fwv-frost.png", "/projects/fwv-frost2.png"],
+    title: "FROST WAVE",
+    description: "Vitrine digital de gelo saborizado.",
+    images: ["/projetos/fw-web.png", "/projetos/fw-web2.png"],
     technologies: ["React Native", "TypeScript"],
     details:
-      "FWV Frost é um app mobile para gestão da produção e venda de gelo saborizado, incluindo controle de estoque, pedidos e integração com pagamentos.",
-    link: "https://fwvfrost.example.com", // <-- link do site
+      "Projeto desenvolvido como vitrine digital, exibindo produtos e sabores de gelo. O fluxo de compra é direcionado para o WhatsApp da empresa.",
+    link: "https://www.frostwave.com.br/home", 
+  },
+  {
+    title: "Omega Frio",
+    description: "Vitrine digital para empresa de refrigeração.",
+    images: ["/projetos/om-web.png", "/projetos/om-web2.png"],
+    technologies: ["React Native", "TypeScript"],
+    details:
+      "Site vitrine digital para a Omega Frio. O foco é a apresentação da marca e dos produtos, com direcionamento de contato via WhatsApp.",
+    link: "https://www.omegafrio.com.br/home", 
+  },
+  {
+    title: "EcoFleet",
+    description: "Plataforma acadêmica de gestão de frotas.",
+    images: ["/projetos/eco-web.png", "/projetos/eco-web2.png"],
+    technologies: ["React Native", "TypeScript"],
+    details:
+      "EcoFleet foi desenvolvido como projeto acadêmico, com foco na gestão sustentável de frotas. Inclui monitoramento de veículos, relatórios básicos e simulação de boas práticas ambientais aplicadas à logística.",
+    link: "https://ecofleet-lime.vercel.app/"
   },
 ];
 
@@ -41,10 +59,10 @@ export default function Projects() {
   return (
     <section className="p-8 bg-gradient-to-b from-blue-900 to-black rounded-lg m-4 text-white">
       <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center animate-fadeIn">
-        Projetos
+        Projetos de Relavancia
       </h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
         {projects.map((proj) => (
           <div
             key={proj.title}
@@ -83,16 +101,24 @@ export default function Projects() {
 
       {/* Modal */}
       {selectedProject && (
-        <div className="fixed inset-0 bg-black/80 flex justify-center items-center z-50 p-4 rounded-lg">
-          <div className="bg-gray-900 rounded-lg shadow-2xl max-w-4xl w-full overflow-y-auto max-h-full p-6 relative">
+        <div
+          className="fixed inset-0 bg-black/80 flex justify-center items-center z-50 p-4 rounded-lg"
+          onClick={() => setSelectedProject(null)}
+        >
+          <div
+            className="bg-gray-900 rounded-lg shadow-2xl max-w-5xl w-full overflow-y-auto max-h-[90vh] p-6 relative"
+            onClick={(e) => e.stopPropagation()} // evita fechar clicando dentro
+          >
+            {/* Botão fechar */}
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-4 right-4 text-white text-2xl font-bold hover:text-red-500"
+              className="absolute top-4 right-4 text-white text-3xl font-bold hover:text-red-500 bg-gray-800/50 rounded-full w-12 h-12 flex items-center justify-center shadow-lg"
             >
               &times;
             </button>
 
-            <div className="flex justify-between items-center mb-4">
+            {/* Header */}
+            <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6 pr-10">
               <h2 className="text-3xl font-bold">{selectedProject.title}</h2>
               {selectedProject.link && (
                 <a
@@ -107,6 +133,7 @@ export default function Projects() {
             </div>
 
             <p className="mb-4">{selectedProject.details}</p>
+
             <div className="flex gap-4 flex-wrap mb-4">
               {selectedProject.technologies.map((tech) => (
                 <span
@@ -117,6 +144,7 @@ export default function Projects() {
                 </span>
               ))}
             </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {selectedProject.images.map((img, i) => (
                 <img
