@@ -51,7 +51,7 @@ export default function Home() {
       {/* Wrapper com gradiente contínuo */}
       <div className="bg-gradient-to-b from-blue-900 via-gray-900 to-black text-white">
         {/* Hero */}
-        <section className="flex flex-col items-center justify-center min-h-screen text-center p-6">
+        <section className="flex flex-col items-center justify-center min-h-[70vh] text-center p-6">
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold mb-6 animate-fadeIn">
             Olá, eu sou <span className="text-blue-400">Cauan</span>
           </h1>
