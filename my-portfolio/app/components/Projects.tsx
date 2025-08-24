@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FaReact, FaJava, FaJsSquare } from "react-icons/fa";
 import { SiNextdotjs, SiTypescript } from "react-icons/si";
 import { MdPhoneIphone } from "react-icons/md";
+import { ReactNode } from "react";
 
 type Project = {
   title: string;
@@ -54,7 +55,8 @@ const projects: Project[] = [
   },
 ];
 
-const techIcons: Record<string, JSX.Element> = {
+// Corrigido: ReactNode no lugar de JSX.Element
+const techIcons: Record<string, ReactNode> = {
   React: <FaReact size={20} color="#61dafb" />,
   "Next.js": <SiNextdotjs size={20} color="#ffffff" />,
   Java: <FaJava size={20} color="#f89820" />,
@@ -121,7 +123,6 @@ export default function Projects() {
             className="bg-gray-900 rounded-lg shadow-2xl max-w-5xl w-full overflow-y-auto max-h-[90vh] p-6 relative"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Botão fechar */}
             <button
               onClick={() => setSelectedProject(null)}
               className="absolute top-4 right-4 text-white text-3xl font-bold hover:text-red-500 bg-gray-800/50 rounded-full w-12 h-12 flex items-center justify-center shadow-lg"
@@ -129,7 +130,6 @@ export default function Projects() {
               &times;
             </button>
 
-            {/* Header */}
             <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-6 pr-10">
               <h2 className="text-3xl font-bold">{selectedProject.title}</h2>
               {selectedProject.link && (
