@@ -1,7 +1,9 @@
 "use client";
 
+import Image from "next/image";
+
 export default function About() {
-  const skills = [
+  const skills: string[] = [
     "JavaScript / TypeScript",
     "React / Next.js",
     "Node.js / Express",
@@ -16,20 +18,25 @@ export default function About() {
   ];
 
   return (
-    <section className="p-8 bg-gradient-to-b from-blue-900  to-blackrounded-lg m-4 animate-fadeIn text-white rounded-lg">
+    <section className="p-8 bg-gradient-to-b from-blue-900 to-black rounded-lg m-4 animate-fadeIn text-white">
       <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center animate-fadeIn">
         Sobre Mim
       </h2>
 
       <div className="flex flex-col md:flex-row items-center md:items-start gap-10">
+        {/* Avatar otimizado */}
         <div className="flex-shrink-0 animate-fadeIn delay-200">
-          <img
+          <Image
             src="/avatar.png"
             alt="Foto de Cauan"
+            width={240}
+            height={240}
             className="w-48 h-48 md:w-60 md:h-60 rounded-full border-4 border-blue-400 object-cover"
+            priority
           />
         </div>
 
+        {/* Texto + Skills */}
         <div className="flex-1 animate-fadeIn delay-400">
           <p className="mb-6 text-white/90 text-lg md:text-xl leading-relaxed">
             Olá! Sou Cauan, desenvolvedor Full Stack de Santo André com experiência em aplicações web, mobile e corporativas.  
