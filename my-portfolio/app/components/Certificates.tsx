@@ -3,7 +3,13 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const certificates = [
+type Certificate = {
+  title: string;
+  date: string;
+  image: string;
+};
+
+const certificates: Certificate[] = [
   {
     title:
       "Certificado de Qualificação Profissional em Desenvolvimento e Designer Web 2.0",
@@ -26,7 +32,7 @@ const certificates = [
 ];
 
 export default function Certificates() {
-  const [selected, setSelected] = useState<any>(null);
+  const [selected, setSelected] = useState<Certificate | null>(null);
 
   return (
     <section className="p-8 bg-gradient-to-b from-blue-900 to-black m-4 animate-fadeIn text-white rounded-lg">
@@ -63,6 +69,7 @@ export default function Certificates() {
       {/* Modal para ampliar o certificado */}
       {selected && (
         <div
+          key={selected.title}
           className="fixed inset-0 bg-black/80 flex justify-center items-center z-50 p-4"
           onClick={() => setSelected(null)} // Fecha ao clicar fora
         >

@@ -1,12 +1,21 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { FaReact, FaJava, FaJsSquare } from "react-icons/fa";
 import { SiNextdotjs, SiTypescript } from "react-icons/si";
 import { MdPhoneIphone } from "react-icons/md";
-import Image from "next/image";
 
-const projects = [
+type Project = {
+  title: string;
+  description: string;
+  images: string[];
+  technologies: string[];
+  details: string;
+  link?: string;
+};
+
+const projects: Project[] = [
   {
     title: "Carcheck",
     description: "Sistema de verificação de integridade e identificação de problemas com IA.",
@@ -14,7 +23,7 @@ const projects = [
     technologies: ["React", "Next.js", "Java"],
     details:
       "Carcheck é uma aplicação web que permite identificar problemas dos veículos apenas com perguntas e respostas utilizando IA. Conta com dashboards intuitivos e relatórios detalhados.",
-    link: "https://carcheck-wine.vercel.app/",
+    link: "https://carcheck-wine.vercel.app/"
   },
   {
     title: "FROST WAVE",
@@ -23,7 +32,7 @@ const projects = [
     technologies: ["React Native", "TypeScript"],
     details:
       "Projeto desenvolvido como vitrine digital, exibindo produtos e sabores de gelo. O fluxo de compra é direcionado para o WhatsApp da empresa.",
-    link: "https://www.frostwave.com.br/home",
+    link: "https://www.frostwave.com.br/home", 
   },
   {
     title: "Omega Frio",
@@ -32,7 +41,7 @@ const projects = [
     technologies: ["React Native", "TypeScript"],
     details:
       "Site vitrine digital para a Omega Frio. O foco é a apresentação da marca e dos produtos, com direcionamento de contato via WhatsApp.",
-    link: "https://www.omegafrio.com.br/home",
+    link: "https://www.omegafrio.com.br/home", 
   },
   {
     title: "EcoFleet",
@@ -41,11 +50,11 @@ const projects = [
     technologies: ["React Native", "TypeScript"],
     details:
       "EcoFleet foi desenvolvido como projeto acadêmico, com foco na gestão sustentável de frotas. Inclui monitoramento de veículos, relatórios básicos e simulação de boas práticas ambientais aplicadas à logística.",
-    link: "https://ecofleet-lime.vercel.app/",
+    link: "https://ecofleet-lime.vercel.app/"
   },
 ];
 
-const techIcons = {
+const techIcons: Record<string, JSX.Element> = {
   React: <FaReact size={20} color="#61dafb" />,
   "Next.js": <SiNextdotjs size={20} color="#ffffff" />,
   Java: <FaJava size={20} color="#f89820" />,
@@ -55,7 +64,7 @@ const techIcons = {
 };
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<any>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
     <section className="p-8 bg-gradient-to-b from-blue-900 to-black rounded-lg m-4 text-white">
@@ -104,6 +113,7 @@ export default function Projects() {
       {/* Modal */}
       {selectedProject && (
         <div
+          key={selectedProject.title}
           className="fixed inset-0 bg-black/80 flex justify-center items-center z-50 p-4 rounded-lg"
           onClick={() => setSelectedProject(null)}
         >
