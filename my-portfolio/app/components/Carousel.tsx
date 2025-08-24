@@ -1,25 +1,39 @@
 "use client";
-"use client";
-import { FaJava, FaHtml5, FaCss3Alt, FaNodeJs } from "react-icons/fa";
-import { SiPython, SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiMysql, SiPostgresql, SiMongodb, SiGit, SiSpring, SiTailwindcss, SiDocker } from "react-icons/si";
 
+import { FaJava, FaHtml5, FaCss3Alt, FaNodeJs } from "react-icons/fa";
+import {
+  SiPython,
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiJavascript,
+  SiMysql,
+  SiPostgresql,
+  SiMongodb,
+  SiGit,
+  SiSpring,
+  SiTailwindcss,
+  SiDocker,
+} from "react-icons/si";
+
+// Array com referências aos ícones e suas props
 export const icons = [
-  <FaJava size={50} color="#f89820" />,
-  <SiPython size={50} color="#306998" />,
-  <SiJavascript size={50} color="#f7df1e" />,
-  <SiTypescript size={50} color="#3178c6" />,
-  <SiReact size={50} color="#61dafb" />,
-  <SiNextdotjs size={50} color="#ffffff" />,
-  <FaHtml5 size={50} color="#e34f26" />,
-  <FaCss3Alt size={50} color="#1572b6" />,
-  <SiSpring size={50} color="#6DB33F" />,
-  <FaNodeJs size={50} color="#339933" />,
-  <SiMysql size={50} color="#4479A1" />,
-  <SiPostgresql size={50} color="#336791" />,
-  <SiMongodb size={50} color="#47A248" />,
-  <SiDocker size={50} color="#2496ED" />,
-  <SiGit size={50} color="#F05032" />,
-  <SiTailwindcss size={50} color="#38BDF8" />,
+  { Icon: FaJava, color: "#f89820" },
+  { Icon: SiPython, color: "#306998" },
+  { Icon: SiJavascript, color: "#f7df1e" },
+  { Icon: SiTypescript, color: "#3178c6" },
+  { Icon: SiReact, color: "#61dafb" },
+  { Icon: SiNextdotjs, color: "#ffffff" },
+  { Icon: FaHtml5, color: "#e34f26" },
+  { Icon: FaCss3Alt, color: "#1572b6" },
+  { Icon: SiSpring, color: "#6DB33F" },
+  { Icon: FaNodeJs, color: "#339933" },
+  { Icon: SiMysql, color: "#4479A1" },
+  { Icon: SiPostgresql, color: "#336791" },
+  { Icon: SiMongodb, color: "#47A248" },
+  { Icon: SiDocker, color: "#2496ED" },
+  { Icon: SiGit, color: "#F05032" },
+  { Icon: SiTailwindcss, color: "#38BDF8" },
 ];
 
 export default function Carousel() {
@@ -27,19 +41,23 @@ export default function Carousel() {
   const repeatedIcons = [...icons, ...icons];
 
   return (
-    <section className="w-full overflow-hidden py-8 ">
+    <section className="w-full overflow-hidden py-8">
       <div className="flex min-w-full animate-scroll">
-        {repeatedIcons.map((icon, idx) => (
+        {repeatedIcons.map(({ Icon, color }, idx) => (
           <div key={idx} className="flex-shrink-0 mx-8">
-            {icon}
+            <Icon size={50} color={color} />
           </div>
         ))}
       </div>
 
       <style jsx>{`
         @keyframes scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
         }
         .animate-scroll {
           display: flex;
