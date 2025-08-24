@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaReact, FaJava, FaJsSquare } from "react-icons/fa";
 import { SiNextdotjs, SiTypescript } from "react-icons/si";
 import { MdPhoneIphone } from "react-icons/md";
+import Image from "next/image";
 
 const projects = [
   {
@@ -13,7 +14,7 @@ const projects = [
     technologies: ["React", "Next.js", "Java"],
     details:
       "Carcheck é uma aplicação web que permite identificar problemas dos veículos apenas com perguntas e respostas utilizando IA. Conta com dashboards intuitivos e relatórios detalhados.",
-    link: "https://carcheck-wine.vercel.app/"
+    link: "https://carcheck-wine.vercel.app/",
   },
   {
     title: "FROST WAVE",
@@ -22,7 +23,7 @@ const projects = [
     technologies: ["React Native", "TypeScript"],
     details:
       "Projeto desenvolvido como vitrine digital, exibindo produtos e sabores de gelo. O fluxo de compra é direcionado para o WhatsApp da empresa.",
-    link: "https://www.frostwave.com.br/home", 
+    link: "https://www.frostwave.com.br/home",
   },
   {
     title: "Omega Frio",
@@ -31,7 +32,7 @@ const projects = [
     technologies: ["React Native", "TypeScript"],
     details:
       "Site vitrine digital para a Omega Frio. O foco é a apresentação da marca e dos produtos, com direcionamento de contato via WhatsApp.",
-    link: "https://www.omegafrio.com.br/home", 
+    link: "https://www.omegafrio.com.br/home",
   },
   {
     title: "EcoFleet",
@@ -40,7 +41,7 @@ const projects = [
     technologies: ["React Native", "TypeScript"],
     details:
       "EcoFleet foi desenvolvido como projeto acadêmico, com foco na gestão sustentável de frotas. Inclui monitoramento de veículos, relatórios básicos e simulação de boas práticas ambientais aplicadas à logística.",
-    link: "https://ecofleet-lime.vercel.app/"
+    link: "https://ecofleet-lime.vercel.app/",
   },
 ];
 
@@ -54,12 +55,12 @@ const techIcons = {
 };
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] = useState<any>(null);
 
   return (
     <section className="p-8 bg-gradient-to-b from-blue-900 to-black rounded-lg m-4 text-white">
       <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center animate-fadeIn">
-        Projetos de Relavancia
+        Projetos de Relevância
       </h2>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -69,10 +70,11 @@ export default function Projects() {
             className="bg-gray-800/50 rounded-xl shadow-2xl overflow-hidden transform transition-transform duration-500 hover:scale-105 hover:rotate-1 cursor-pointer group perspective-1000"
           >
             <div className="relative w-full h-60 md:h-64 overflow-hidden">
-              <img
+              <Image
                 src={proj.images[0]}
                 alt={proj.title}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                fill
+                className="object-cover group-hover:scale-110 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-center items-center text-center p-4">
                 <h3 className="text-xl font-bold mb-2">{proj.title}</h3>
@@ -107,7 +109,7 @@ export default function Projects() {
         >
           <div
             className="bg-gray-900 rounded-lg shadow-2xl max-w-5xl w-full overflow-y-auto max-h-[90vh] p-6 relative"
-            onClick={(e) => e.stopPropagation()} // evita fechar clicando dentro
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Botão fechar */}
             <button
@@ -147,12 +149,14 @@ export default function Projects() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {selectedProject.images.map((img, i) => (
-                <img
-                  key={i}
-                  src={img}
-                  alt={`${selectedProject.title} screenshot ${i + 1}`}
-                  className="rounded-lg object-cover w-full h-64"
-                />
+                <div key={i} className="relative w-full h-64">
+                  <Image
+                    src={img}
+                    alt={`${selectedProject.title} screenshot ${i + 1}`}
+                    fill
+                    className="rounded-lg object-cover"
+                  />
+                </div>
               ))}
             </div>
           </div>

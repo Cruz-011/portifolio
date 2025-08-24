@@ -1,7 +1,7 @@
 "use client";
 "use client";
 import { FaJava, FaHtml5, FaCss3Alt, FaNodeJs } from "react-icons/fa";
-import { SiPython, SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiMysql, SiPostgresql, SiMongodb, SiGit, SiSpring, SiTailwindcss, SiAngular, SiDocker } from "react-icons/si";
+import { SiPython, SiReact, SiNextdotjs, SiTypescript, SiJavascript, SiMysql, SiPostgresql, SiMongodb, SiGit, SiSpring, SiTailwindcss, SiDocker } from "react-icons/si";
 
 export const icons = [
   <FaJava size={50} color="#f89820" />,

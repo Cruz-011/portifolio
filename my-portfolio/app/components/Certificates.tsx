@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const certificates = [
   {
@@ -25,7 +26,7 @@ const certificates = [
 ];
 
 export default function Certificates() {
-  const [selected, setSelected] = useState(null);
+  const [selected, setSelected] = useState<any>(null);
 
   return (
     <section className="p-8 bg-gradient-to-b from-blue-900 to-black m-4 animate-fadeIn text-white rounded-lg">
@@ -41,11 +42,14 @@ export default function Certificates() {
             onClick={() => setSelected(cert)}
             className="bg-gray-800/60 rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 hover:shadow-blue-500/40 transition-transform duration-300"
           >
-            <img
-              src={cert.image}
-              alt={cert.title}
-              className="w-full h-52 object-contain bg-black/40"
-            />
+            <div className="relative w-full h-52 bg-black/40">
+              <Image
+                src={cert.image}
+                alt={cert.title}
+                fill
+                className="object-contain"
+              />
+            </div>
             <div className="p-3 text-center">
               <h3 className="font-semibold text-base mb-1 line-clamp-2">
                 {cert.title}
@@ -75,11 +79,15 @@ export default function Certificates() {
             </button>
 
             <div className="p-6 flex flex-col items-center">
-              <img
-                src={selected.image}
-                alt={selected.title}
-                className="w-full max-h-[80vh] object-contain rounded-lg"
-              />
+              <div className="relative w-full max-h-[80vh]">
+                <Image
+                  src={selected.image}
+                  alt={selected.title}
+                  width={1200}
+                  height={800}
+                  className="w-full h-auto object-contain rounded-lg"
+                />
+              </div>
               <h3 className="text-2xl font-bold mt-4 mb-2">{selected.title}</h3>
               <p className="text-gray-300">{selected.date}</p>
             </div>
