@@ -55,7 +55,6 @@ const projects: Project[] = [
   },
 ];
 
-// Corrigido: ReactNode no lugar de JSX.Element
 const techIcons: Record<string, ReactNode> = {
   React: <FaReact size={20} color="#61dafb" />,
   "Next.js": <SiNextdotjs size={20} color="#ffffff" />,
@@ -78,7 +77,7 @@ export default function Projects() {
         {projects.map((proj) => (
           <div
             key={proj.title}
-            className="bg-gray-800/50 rounded-xl shadow-2xl overflow-hidden transform transition-transform duration-500 hover:scale-105 hover:rotate-1 cursor-pointer group perspective-1000"
+            className="bg-gray-800/50 rounded-xl shadow-2xl overflow-hidden transform transition-transform duration-500 hover:scale-105 hover:rotate-1 cursor-pointer group perspective-1000 relative"
           >
             <div className="relative w-full h-60 md:h-64 overflow-hidden">
               <Image
@@ -102,12 +101,24 @@ export default function Projects() {
                 </div>
                 <button
                   onClick={() => setSelectedProject(proj)}
-                  className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg font-semibold transition-colors"
+                  className="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg font-semibold transition-colors hidden sm:inline-block"
                 >
                   Ver Projeto
                 </button>
               </div>
             </div>
+
+            {/* Botão fixo mobile */}
+            {proj.link && (
+              <a
+                href={proj.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="sm:hidden absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg font-semibold text-sm text-white shadow-lg"
+              >
+                Acessar Projeto
+              </a>
+            )}
           </div>
         ))}
       </div>
