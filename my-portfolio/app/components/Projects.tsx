@@ -108,7 +108,6 @@ export default function Projects() {
               </div>
             </div>
 
-            {/* Botão fixo mobile */}
             {proj.link && (
               <a
                 href={proj.link}
@@ -123,7 +122,6 @@ export default function Projects() {
         ))}
       </div>
 
-      {/* Modal */}
       {selectedProject && (
         <div
           key={selectedProject.title}

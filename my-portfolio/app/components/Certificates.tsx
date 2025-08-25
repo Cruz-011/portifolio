@@ -41,23 +41,30 @@ export default function Certificates() {
       </h2>
 
       {/* Grid de certificados */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {certificates.map((cert) => (
           <div
             key={cert.title}
             onClick={() => setSelected(cert)}
-            className="bg-gray-800/60 rounded-lg shadow-lg overflow-hidden cursor-pointer hover:scale-105 hover:shadow-blue-500/40 transition-transform duration-300"
+            className="bg-gray-800/60 rounded-xl shadow-lg overflow-hidden cursor-pointer 
+                       hover:scale-105 hover:shadow-blue-500/40 transition-transform duration-300"
           >
-            <div className="relative w-full h-52 bg-black/40">
+            {/* Imagem quadrada */}
+            <div className="relative w-full aspect-square bg-black">
               <Image
                 src={cert.image}
                 alt={cert.title}
                 fill
-                className="object-contain"
+                className="object-cover"
               />
             </div>
+
+            {/* Descrição */}
             <div className="p-3 text-center">
-              <h3 className="font-semibold text-base mb-1 line-clamp-2">
+              <h3
+                title={cert.title}
+                className="font-semibold text-sm mb-1 line-clamp-2 break-words"
+              >
                 {cert.title}
               </h3>
               <p className="text-xs text-gray-300">{cert.date}</p>
@@ -95,7 +102,9 @@ export default function Certificates() {
                   className="w-full h-auto object-contain rounded-lg"
                 />
               </div>
-              <h3 className="text-2xl font-bold mt-4 mb-2">{selected.title}</h3>
+              <h3 className="text-2xl font-bold mt-4 mb-2">
+                {selected.title}
+              </h3>
               <p className="text-gray-300">{selected.date}</p>
             </div>
           </div>
