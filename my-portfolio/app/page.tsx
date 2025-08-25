@@ -85,22 +85,22 @@ export default function Home() {
         </section>
 
         {/* Skills */}
-        <section id="skills" className="py-12 px-4 sm:px-8 md:px-16">
+        <section id="Skills" className="py-12 px-4 sm:px-8 md:px-16">
           <Skills />
         </section>
 
         {/* Projects */}
-        <section id="projects" className="py-12 px-4 sm:px-8 md:px-16">
+        <section id="Projetos" className="py-12 px-4 sm:px-8 md:px-16">
           <Projects />
         </section>
 
         {/* Certificates */}
-        <section id="certificates" className="py-12 px-4 sm:px-8 md:px-16">
+        <section id="Certificados" className="py-12 px-4 sm:px-8 md:px-16">
           <Certificates />
         </section>
 
         {/* Contact */}
-        <section id="contact" className="py-12 px-4 sm:px-8 md:px-16">
+        <section id="Contato" className="py-12 px-4 sm:px-8 md:px-16">
           <Contact />
         </section>
 
