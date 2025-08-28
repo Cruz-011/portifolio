@@ -27,7 +27,7 @@ export default function About() {
         {/* Avatar otimizado */}
         <div className="flex-shrink-0 animate-fadeIn delay-200">
           <Image
-            src="/avatar.png"
+            src="/avatar2.png"
             alt="Foto de Cauan"
             width={240}
             height={240}
